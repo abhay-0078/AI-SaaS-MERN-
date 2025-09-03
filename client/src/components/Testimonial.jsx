@@ -50,9 +50,9 @@ const Testimonial = () => {
             <div className="flex items-center gap-1">
               {Array(5)
                 .fill(0)
-                .map((_, img) => (
+                .map((_, starIndex) => (
                   <img
-                    key={index}
+                    key={starIndex}
                     src={
                       index < testimonial.rating
                         ? assets.star_icon
