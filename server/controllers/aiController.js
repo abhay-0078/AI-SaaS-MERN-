@@ -147,7 +147,7 @@ export const generateImage = async (req, res) => {
 export const removeImageBackground = async (req, res) => {
   try {
     const { userId } = req.auth();
-    const { image } = req.file;
+    const image = req.file;
     const plan = req.plan;
 
     if (plan !== "premium") {
@@ -180,7 +180,7 @@ export const removeImageObject = async (req, res) => {
   try {
     const { userId } = req.auth();
     const { object } = req.body;
-    const { image } = req.file;
+    const image = req.file;
     const plan = req.plan;
 
     if (plan !== "premium") {
@@ -247,7 +247,7 @@ export const reviewResume = async (req, res) => {
     const content = response.choices[0].message.content;
 
     await sql`INSERT INTO creations (user_id, prompt, content, type)
-    VALUES(${userId}, "Review the uploaded resume", ${content}, 'Resume-review')`;
+    VALUES(${userId}, ${"Review the uploaded resume"}, ${content}, 'Resume-review')`;
 
     res.json({ success: true, content: content });
   } catch (error) {

@@ -15,7 +15,7 @@ const CreationItems = ({ item }) => {
             {item.type}-{new Date(item.created_at).toLocaleDateString()}
           </p>
         </div>
-        <button className="bg-[#EFF6FF] border border-[#8FDBFE] text-[#1E40AF] px-4 py-1 rouded-full">
+        <button className="bg-[#EFF6FF] border border-[#8FDBFE] text-[#1E40AF] px-4 py-1 rounded-full">
           {item.type}
         </button>
       </div>
